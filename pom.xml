@@ -1,62 +1,63 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>qm.djlmx</groupId>
-  <artifactId>service-broker</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+	<groupId>djlmx.qm</groupId>
+	<artifactId>service-broker</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
-  <name>service-broker</name>
-  <url>http://maven.apache.org</url>
+	<name>cf-service-brokers</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <springBootVersion>1.1.4.RELEASE</springBootVersion>
-    <hibernateValidatorVersion>5.1.0.Final</hibernateValidatorVersion>
-    <jsonPathVersion>0.9.1</jsonPathVersion>
-    <junitVersion>3.8.1</junitVersion>
-  </properties>
-
-  <dependencies>
-  	<dependency>
+	<parent>
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-security</artifactId>
-		<version>${springBootVersion}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-web</artifactId>
-		<version>${springBootVersion}</version>
-	</dependency>
-  	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-test</artifactId>
-		<version>${springBootVersion}</version>
-	</dependency>
-	
-  	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-validator</artifactId>
-		<version>${hibernateValidatorVersion}</version>
-	</dependency>
-	
-  	<dependency>
-		<groupId>com.jayway.jsonpath</groupId>
-		<artifactId>json-path</artifactId>
-		<version>${jsonPathVersion}</version>
-	</dependency>
-  	
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junitVersion}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  
-   <build>
-        <finalName>service_broker</finalName>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.0.2.RELEASE</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		
+        <!-- Others -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+	</dependencies>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>http://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<finalName>service-broker</finalName>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -73,8 +74,12 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <plugins>
-            <plugin>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			 <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <configuration>
@@ -90,9 +95,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
-  
-  
-  
+		</plugins>
+	</build>
+
 </project>

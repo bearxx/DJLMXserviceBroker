@@ -1,5 +1,7 @@
 package org.cloudfoundry.community.servicebroker.model;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -12,9 +14,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  *
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE)
-public class ServiceInstance {
+public class ServiceInstance implements Serializable{
 
-	@JsonSerialize
+    private static final long serialVersionUID = 1L;
+
+    @JsonSerialize
 	@JsonProperty("service_instance_id")
 	private String id;
 	
@@ -37,11 +41,9 @@ public class ServiceInstance {
 	@JsonSerialize
 	@JsonProperty("dashboard_url")
 	private String dashboardUrl;
-
-	@SuppressWarnings("unused")
-	private ServiceInstance() {}
 	
-	public ServiceInstance( String id, String serviceDefinitionId, String planId, String organizationGuid, String spaceGuid, String dashboardUrl ) {
+	public ServiceInstance( String id, String serviceDefinitionId, String planId,
+	        String organizationGuid, String spaceGuid, String dashboardUrl ) {
 		setId(id);
 		setServiceDefinitionId(serviceDefinitionId);
 		setPlanId(planId);

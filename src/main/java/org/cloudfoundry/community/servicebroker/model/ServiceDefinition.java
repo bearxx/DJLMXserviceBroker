@@ -77,7 +77,25 @@ public class ServiceDefinition {
 		this.dashboardClient = dashboardClient;
 	}
 	
-	public String getId() {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+    public ServiceDefinition(Map s) {
+        this((String) s.get("id"), (String) s.get("name"), (String) s.get("description"), 
+                (Boolean) s.get("bindable"), null);
+        
+        ArrayList<Object> plans = (ArrayList<Object>) s.get("plans");
+        for (Object o : plans) {
+            Map m = (Map) o;
+            Plan plan = new Plan((String) m.get("id"), (String) m.get("name"), 
+                    (String) m.get("description"), (Map<String,Object>) m.get("metadata"));
+            this.plans.add(plan);
+        }
+        setTags((List<String>) s.get("tags"));
+        setMetadata((Map<String,Object>) s.get("metadata"));
+        setRequires((List<String>) s.get("requires"));
+        this.dashboardClient = new DashboardClient((Map) s.get("dashboardClient"));
+    }
+
+    public String getId() {
 		return id;
 	}
 

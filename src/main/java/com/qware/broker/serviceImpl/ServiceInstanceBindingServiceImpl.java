@@ -1,13 +1,15 @@
-package qm.djlmx.service_broker.service.impl;
+package com.qware.broker.serviceImpl;
 
 import org.cloudfoundry.community.servicebroker.exception.ServiceBrokerException;
 import org.cloudfoundry.community.servicebroker.exception.ServiceInstanceBindingExistsException;
 import org.cloudfoundry.community.servicebroker.model.ServiceInstance;
 import org.cloudfoundry.community.servicebroker.model.ServiceInstanceBinding;
 import org.cloudfoundry.community.servicebroker.service.ServiceInstanceBindingService;
+import org.springframework.stereotype.Service;
 
-import qm.djlmx.service_broker.util.ServiceInstanceRepository;
+import com.qware.broker.util.ServiceInstanceRepository;
 
+@Service
 public class ServiceInstanceBindingServiceImpl implements
 		ServiceInstanceBindingService {
 

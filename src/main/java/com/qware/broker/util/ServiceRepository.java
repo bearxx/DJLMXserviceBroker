@@ -1,4 +1,4 @@
-package qm.djlmx.service_broker.util;
+package com.qware.broker.util;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +8,7 @@ import org.cloudfoundry.community.servicebroker.exception.ServiceBrokerException
 import org.cloudfoundry.community.servicebroker.exception.ServiceInstanceExistsException;
 import org.cloudfoundry.community.servicebroker.model.ServiceDefinition;
 import org.cloudfoundry.community.servicebroker.model.ServiceInstance;
+import org.springframework.stereotype.Service;
 
 /**
  * This is the repository which store the informations of the broker Now you
@@ -16,6 +17,7 @@ import org.cloudfoundry.community.servicebroker.model.ServiceInstance;
  * @author lmx
  * 
  */
+@Service
 public class ServiceRepository {
 
 	private static Map<String, ServiceInstance> repo = new HashMap<String, ServiceInstance>();
