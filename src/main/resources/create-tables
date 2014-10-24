@@ -1,0 +1,17 @@
+create table ServiceInstanceRepo
+(
+id varchar(255),
+serviceDefinitionId varchar(255),
+planId varchar(255),
+organizationGuid varchar(255),
+spaceGuid varchar(255),
+dashboardUrl varchar(255)
+);
+
+create table BindingRepo
+(
+id varchar(255),
+serviceInstanceId varchar(255),
+syslogDrainUrl varchar(255),
+appGuid varchar(255)
+);

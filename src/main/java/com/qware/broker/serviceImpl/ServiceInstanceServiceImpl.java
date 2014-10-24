@@ -1,4 +1,4 @@
-package qm.djlmx.service_broker.service.impl;
+package com.qware.broker.serviceImpl;
 
 import java.util.List;
 
@@ -7,8 +7,9 @@ import org.cloudfoundry.community.servicebroker.exception.ServiceInstanceExistsE
 import org.cloudfoundry.community.servicebroker.model.ServiceDefinition;
 import org.cloudfoundry.community.servicebroker.model.ServiceInstance;
 import org.cloudfoundry.community.servicebroker.service.ServiceInstanceService;
+import org.springframework.stereotype.Service;
 
-import qm.djlmx.service_broker.util.ServiceRepository;
+import com.qware.broker.util.ServiceRepository;
 
 /**
  * <b>maybe the delete function is not OK,
@@ -19,6 +20,7 @@ import qm.djlmx.service_broker.util.ServiceRepository;
  * @author lmx
  *
  */
+@Service
 public class ServiceInstanceServiceImpl implements ServiceInstanceService {
 
 	@Override

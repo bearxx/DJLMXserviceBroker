@@ -1,4 +1,4 @@
-package qm.djlmx.service_broker.util;
+package com.qware.broker.util;
 
 import java.util.HashMap;
 import java.util.Map;

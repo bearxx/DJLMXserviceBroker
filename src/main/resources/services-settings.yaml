@@ -1,0 +1,26 @@
+- id: oracle-service-broker
+  name: oracle-database-service
+  description: "A simple Oracle database service implementation"
+  bindable: true
+  plans:
+    - id: a-a-a-a
+      name: default-plan
+      description: "This is a default Oracle plan.  All services are created equally."
+      metadata:
+        costs:
+          cost: 2048
+          unit: MB
+        bullets: ["Shared Oracle DB server", "2048 MB Storage (not enforced)"]
+  tags: ["oracle", "database"]
+  metadata:
+    displayName: OracleDB
+    longDescription: "OracleDB Service"
+    providerDisplayName: "Qware"
+    documentationUrl: "http://www.***.org"
+    supportUrl: "http://www.***.org"
+  requires: null
+  dashboardClient:
+    id: aaa
+    secret: aaa
+    redirect_uri: "http://www.aaa.com"
+                  

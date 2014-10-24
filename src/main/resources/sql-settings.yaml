@@ -1,0 +1,10 @@
+MySql:
+  url: "jdbc:mysql://10.10.102.101:3306/oracle_service_broker_db"
+  database: "oracle_service_broker_db"
+  username: "buynow"
+  password: "buynow"
+OracleSql:
+  url: "jdbc:oracle:thin:@//10.10.103.217:1521/orcl"
+  port: "1521"
+  username: "sys as sysdba"
+  password: "sys"
