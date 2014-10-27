@@ -1,8 +1,10 @@
 package com.qware.broker.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.cloudfoundry.community.servicebroker.exception.ServiceBrokerException;
 import org.cloudfoundry.community.servicebroker.exception.ServiceInstanceExistsException;
@@ -23,7 +25,13 @@ public class ServiceRepository {
 	private static Map<String, ServiceInstance> repo = new HashMap<String, ServiceInstance>();
 
 	public static List<ServiceInstance> getAllServiceInstances() {
-		return (List<ServiceInstance>) repo.values();
+//		ServiceInstance instTest = new ServiceInstance("1", "2", "3", "4", "5", null);
+		List<ServiceInstance> list = new ArrayList<ServiceInstance>();
+		for(Entry<String, ServiceInstance> entry : repo.entrySet()) {
+			list.add( entry.getValue());
+		}
+		return list;
+//		return (List<ServiceInstance>) repo.values();
 	}
 
 	public static ServiceInstance getServiceInstance(String id) {
